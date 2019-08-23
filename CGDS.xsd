@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CGDS" targetNamespace="http://tempuri.org/CGDS.xsd" xmlns:mstns="http://tempuri.org/CGDS.xsd" xmlns="http://tempuri.org/CGDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="dapConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="dapConnectionString (Settings)" PropertyReference="ApplicationSettings.GSR.DAP.BO.Properties.Settings.GlobalReference.Default.dapConnectionString" Provider="System.Data.Odbc">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DimensionRowsTableAdapter" GeneratorDataComponentClassName="DimensionRowsTableAdapter" Name="DimensionRows" UserDataComponentName="DimensionRowsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dapConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>Select distinct DR.DimensionRowId as DimensionRowId
+from Parameter as P,DimensionRow as DR,ParameterOrder O,LOB,OpsArea
+where P.DimensionRowId = DR.DimensionRowId and
+           P.OpsAreaId = OpsArea.OpsAreaId and 
+           P.LOBId = LOB.LOBId and 
+           O.ParameterId = P.ParameterId
+</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="DimensionRowId" DataSetColumn="DimensionRowId" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CGDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="CGDS" msprop:Generator_DataSetName="CGDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DimensionRows" msprop:Generator_UserTableName="DimensionRows" msprop:Generator_RowDeletedName="DimensionRowsRowDeleted" msprop:Generator_RowChangedName="DimensionRowsRowChanged" msprop:Generator_RowClassName="DimensionRowsRow" msprop:Generator_RowChangingName="DimensionRowsRowChanging" msprop:Generator_RowEvArgName="DimensionRowsRowChangeEvent" msprop:Generator_RowEvHandlerName="DimensionRowsRowChangeEventHandler" msprop:Generator_TableClassName="DimensionRowsDataTable" msprop:Generator_TableVarName="tableDimensionRows" msprop:Generator_RowDeletingName="DimensionRowsRowDeleting" msprop:Generator_TablePropName="DimensionRows">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DimensionRowId" msprop:Generator_UserColumnName="DimensionRowId" msprop:Generator_ColumnPropNameInRow="DimensionRowId" msprop:Generator_ColumnVarNameInTable="columnDimensionRowId" msprop:Generator_ColumnPropNameInTable="DimensionRowIdColumn" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
